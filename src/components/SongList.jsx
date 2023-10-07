@@ -55,7 +55,6 @@ const Icon = styled.div`
   align-items: center;
   font-size: 30px;
   cursor: pointer;
-  gap: 10px;
   @media (min-width: 768px) {
     font-size: 40px;
   }
