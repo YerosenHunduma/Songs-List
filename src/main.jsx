@@ -1,16 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Global, css } from "@emotion/react";
 import App from "./App.jsx";
-import { Global } from "@emotion/react";
-import { globalStyles } from "./featuer/GlobalStyle.js";
 import store from "./app/store.js";
 import { Provider } from "react-redux";
 
+const globalStyles = css`
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+  }
+`;
+
 ReactDOM.createRoot(document.getElementById("root")).render(
-  // <React.StrictMode>
   <Provider store={store}>
     <App />
     <Global styles={globalStyles} />
   </Provider>
-  // </React.StrictMode>
 );

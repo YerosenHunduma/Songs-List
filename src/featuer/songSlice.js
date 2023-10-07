@@ -18,7 +18,7 @@ export const songSlice = createSlice({
       state.isLoading = false;
     },
     addSongs: (state, action) => {
-      state.songs.push(action.payload);
+      state.songs.unshift(action.payload);
     },
     deleteSong: (state, action) => {
       state.songs = state.songs.filter((song) => song.id !== action.payload.id);

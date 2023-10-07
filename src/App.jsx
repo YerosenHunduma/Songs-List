@@ -5,11 +5,9 @@ const Cont = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: start;
-  min-height: auto;
+  min-height: 100vh;
   background: #161a2b;
   text-align: center;
-  margin: auto 20px;
-  border-radius: 10px;
   padding-bottom: 32px;
 `;
 

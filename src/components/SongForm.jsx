@@ -38,7 +38,7 @@ const ResponsiveButton = styled(Button)`
 
 const ResponsiveButton2 = styled(Button)`
   width: 60%;
-  margin: 0 auto;
+  margin: 20px auto;
   text-transform: uppercase;
   font-size: 16px;
   @media (max-width: 768px) {

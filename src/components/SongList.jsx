@@ -6,6 +6,7 @@ import styled from "@emotion/styled";
 import { TiEdit } from "react-icons/ti";
 import { SiYoutubemusic } from "react-icons/si";
 import { Box, Heading, Button } from "rebass";
+
 const LoadingSpinner = styled.div`
   border: 4px solid rgba(192, 192, 192, 0.3);
   border-top: 4px solid #3498db;
@@ -13,7 +14,7 @@ const LoadingSpinner = styled.div`
   width: 80px;
   height: 80px;
   animation: spin 1s linear infinite;
-  margin: 40px auto; /* Center the spinner */
+  margin: 30px auto;
 
   @keyframes spin {
     0% {
@@ -27,7 +28,7 @@ const LoadingSpinner = styled.div`
 const LoadingText = styled.div`
   color: #3498db;
   font-size: 34px;
-  margin-top: 10px;
+  margin: 20px auto;
 `;
 const OuterWrapper = styled.div`
   padding: 40px 40px 10px 40px;
@@ -78,7 +79,8 @@ const SongInfoWrapper = styled.div`
 const SongTitle = styled.div`
   align-items: center;
   text-align: left;
-  font-size: 16px;
+  font-size: 14px;
+  text-transform: capitalize;
   @media (min-width: 768px) {
     font-size: 24px;
   }
@@ -89,6 +91,7 @@ const ArtistName = styled.div`
   text-align: left;
   font-size: 12px;
   color: #888;
+  text-transform: capitalize;
   @media (min-width: 768px) {
     font-size: 16px;
   }
@@ -128,7 +131,10 @@ const ResponsiveButton = styled(Button)`
 const Footer = styled.div`
   color: #fff;
   white-space: normal;
-  margin: 0 40px;
+  margin: auto;
+  align-self: flex-end;
+  display: flex;
+  justify-content: center;
 `;
 
 function SongList() {
@@ -147,20 +153,28 @@ function SongList() {
     const clickedSong = songs.find((song) => song.id === songId);
 
     if (clickedSong) {
+      const updatedFields = {
+        title:
+          clickedSongTitle.trim() !== "" ? clickedSongTitle : clickedSong.title,
+        artist:
+          clickedSongArtist.trim() !== ""
+            ? clickedSongArtist
+            : clickedSong.artist,
+      };
+
       dispatch(
         updateSong({
           id: songId,
-          title: clickedSongTitle,
-          artist: clickedSongArtist,
+          ...updatedFields,
         })
       );
-    }
 
-    setClickedSongTitle("");
-    setClickedSongArtist("");
-    setSelectedSongId(null);
+      setClickedSongTitle("");
+      setClickedSongArtist("");
+      setSelectedSongId(null);
+    }
   };
-  console.log(songs);
+
   return (
     <>
       {isLoading ? (
@@ -175,7 +189,6 @@ function SongList() {
               <Input
                 type="text"
                 placeholder="Track Title..."
-                required
                 value={clickedSongTitle}
                 onChange={(e) => {
                   setClickedSongTitle(e.target.value);
@@ -184,7 +197,6 @@ function SongList() {
               <Input
                 type="text"
                 placeholder="Artist Name..."
-                required
                 value={clickedSongArtist}
                 onChange={(e) => {
                   setClickedSongArtist(e.target.value);
@@ -200,7 +212,6 @@ function SongList() {
                     outline: "none",
                     background:
                       "linear-gradient(90deg, rgba(0, 128, 0, 1) 0%, rgba(0, 255, 0, 1) 100%)",
-
                     color: "white",
                     padding: "14px 22px",
                     "&:hover": {

@@ -38,7 +38,7 @@ function Home() {
     <>
       <Title>
         <GiMusicalNotes />
-        Here is your music list
+        Here is your Playlist
         <GiMusicalNotes />
       </Title>
       <SongForm />

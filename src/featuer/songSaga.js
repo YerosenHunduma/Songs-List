@@ -5,7 +5,7 @@ function* fetchingSongs() {
   const songs = yield call(() => fetch("https://songlist.onrender.com/songs"));
   const formattedSongs = yield songs.json();
   const miniformattedSongs = formattedSongs.slice(0, 30);
-  yield put(getSongsSuccess(formattedSongs));
+  yield put(getSongsSuccess(miniformattedSongs));
 }
 
 function* songSaga() {
