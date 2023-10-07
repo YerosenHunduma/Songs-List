@@ -53,10 +53,11 @@ const Icon = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-size: 24px;
+  font-size: 30px;
   cursor: pointer;
+  gap: 10px;
   @media (min-width: 768px) {
-    font-size: 34px;
+    font-size: 40px;
   }
 `;
 
@@ -135,6 +136,10 @@ const Footer = styled.div`
   align-self: flex-end;
   display: flex;
   justify-content: center;
+  font-size: 10px;
+  @media (min-width: 540px) {
+    font-size: 16px;
+  }
 `;
 
 function SongList() {
