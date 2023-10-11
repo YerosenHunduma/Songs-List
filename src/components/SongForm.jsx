@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addSongs, addArtists, getSongsFetch } from "../featuer/songSlice";
+import { addSongs, getSongsFetch } from "../featuer/songSlice";
 import { Box, Heading, Button } from "rebass";
 import styled from "@emotion/styled";
+import { v4 as uuidv4 } from "uuid";
 
 const Input = styled.input`
   padding: 14px 16px;
@@ -64,7 +65,7 @@ function SongForm() {
 
     dispatch(
       addSongs({
-        id: songs.length > 0 ? songs[songs.length - 1].id + 1 : 0,
+        id: uuidv4(),
         title,
         artist,
       })

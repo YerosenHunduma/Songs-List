@@ -21,7 +21,8 @@
     "react-router-dom": "^6.16.0",
     "rebass": "^4.0.7",
     "redux-saga": "^1.2.3",
-    "styled-system": "^5.1.5"
+    "styled-system": "^5.1.5",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

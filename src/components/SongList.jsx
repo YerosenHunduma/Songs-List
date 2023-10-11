@@ -148,6 +148,7 @@ function SongList() {
   const songs = useSelector((state) => state.songs.songs);
   const isLoading = useSelector((state) => state.songs.isLoading);
   const dispatch = useDispatch();
+  console.log(songs);
 
   useEffect(() => {
     dispatch(getSongsFetch());
